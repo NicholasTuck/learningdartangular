@@ -17,7 +17,6 @@ class LogPanel implements AttachAware {
   @NgOneWay('cars') ObservableList<Car> cars;
   String logText = '';
 
-
   LogPanel(this._scope) {
     logText = '';
   }
@@ -25,17 +24,13 @@ class LogPanel implements AttachAware {
   clearLog() => logText = '';
 
   attach() {
-    cars.listChanges.listen(onChange);
+    cars.listChanges
+      ..where(itemAdded).listen((value) => logMessage("Car Added", cars[value.first.index]))
+      ..where(itemRemoved).listen((value) => logMessage("Car Removed", value.first.removed.first));
   }
 
-  onChange(List<ListChangeRecord> e){
-    if(e.first.addedCount > 0) {
-      logText += "Added Car: ${cars[e.first.index]}";
-    };
-    if(e.first.removed.length > 0) {
-      logText += "Removed Car: ${e.first.removed.first} \n";
-    }
-  }
+  logMessage(String prefix, Car car) => logText += "$prefix: $car \n";
 
-
+  itemAdded(value)=> value.first.addedCount > 0;
+  itemRemoved(value)=> value.first.removed.length > 0;
 }
