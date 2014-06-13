@@ -1,8 +1,5 @@
 library dart_garage.remove.RemoveCarPanel;
 
-//import 'dart:convert';
-import 'dart:convert' show JSON;
-
 import 'package:angular/angular.dart';
 import 'package:dart_garage/car/Car.dart';
 
