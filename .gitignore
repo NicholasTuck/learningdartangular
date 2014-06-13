@@ -1,0 +1,6 @@
+.DS_Store
+packages
+.project
+.idea
+node_modules
+build

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Chapter Five - A Simple Recipe Book</title>
+    <link rel="stylesheet" href="css/bootstrap-3.1.1.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body ng-cloak>
+
+
+
+
+
+
+
+
+
+<h1>Dart Garage
+    <small>Learning Project</small>
+</h1>
+
+
+<section id="main">
+    <div id="garageWrapper">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-sm-3" id="addCar">
+                    <add-car-panel apply-author-styles></add-car-panel>
+                </div>
+
+
+                <div class="col-sm-2" id="removeCar" >
+                    <remove-car-panel></remove-car-panel>
+                </div>
+
+                <div class="col-sm-7" id="garageEditor">
+                    <garage-browser></garage-browser>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5" id="garageBrowser">
+                    <garage-browser disabled="true"></garage-browser>
+                </div>
+
+                <div class="col-sm-7" id="log">
+                    <garage-log></garage-log>
+                </div>
+
+                <!--<div class="col-sm-7" id="cesiumView" ng-controller="cesiumController as cc">-->
+                    <!--<div>-->
+
+                        <!--<div class="panel panel-primary">-->
+                            <!--<div class="panel-heading">-->
+                                <!--<h3 class="panel-title">Cesium</h3>-->
+                            <!--</div>-->
+                            <!--<div class="panel-body">-->
+
+                                <!--<div id="cesiumContainer" ng-init="initCesium()">-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--<script src="packages/shadow_dom/shadow_dom.min.js"></script>-->
+    <script type="application/dart" src="main.dart"></script>
+    <script type="text/javascript" src="main.dart.js"></script>
+    <script type="text/javascript" src="packages/browser/dart.js"></script>
+</body>
+</html>

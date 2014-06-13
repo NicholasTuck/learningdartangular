@@ -1,0 +1,11 @@
+name: dart_garage
+version: 0.0.1
+dependencies:
+  angular: ">=0.12.0 <0.13.0"
+  browser: any
+  js: any
+  shadow_dom: any
+dev_dependencies:
+  unittest: any
+transformers:
+- angular
