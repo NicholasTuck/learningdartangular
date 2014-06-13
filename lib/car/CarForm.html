@@ -1,4 +1,4 @@
-<fieldset ng-disabled="disabled">
+<fieldset ng-disabled="cmp.disabled">
     <form class="form-horizontal form-compact carForm" role="form" ng-submit="cmp.saveCar()">
         <div class="form-group">
             <label class="col-sm-2 control-label input-sm">Id</label>
@@ -59,7 +59,7 @@
         </div>
 
 
-        <div class="form-group" ng-hide="disabled">
+        <div class="form-group" ng-hide="cmp.disabled">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit"
                         class="btn btn-primary saveButton input-sm">Save

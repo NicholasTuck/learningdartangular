@@ -15,12 +15,13 @@ import 'package:dart_garage/car/Car.dart';
 class CarForm {
 
   Scope _scope;
-  @NgTwoWay('car')
-  Car car;
+
+  @NgTwoWay('car')Car car;
+  @NgOneWayOneTime('disabled')bool disabled;
+
   var engineTypes = Car.ENGINE_TYPES;
 
-  CarForm(this._scope) {
-  }
+  CarForm(this._scope);
 
   void saveCar() {
       _scope.emit("car:saved", car);

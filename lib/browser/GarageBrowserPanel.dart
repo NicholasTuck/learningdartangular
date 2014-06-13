@@ -12,7 +12,7 @@ import 'package:dart_garage/car/Car.dart';
 )
 class GarageBrowserPanel implements AttachAware {
   @NgTwoWay('cars') List<Car> cars;
-  @NgAttr('disabled') bool disabled;
+  @NgOneWayOneTime('disabled') bool disabled;
 
   Car selectedCar;
   String panelTitle;
