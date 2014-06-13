@@ -28,26 +28,4 @@ class CarForm {
   }
 
 
-/**
- *
- *       return {
-    restrict: 'E',
-    templateUrl: 'app/car/carForm.html',
-    scope: {
-    car: '=',
-    disabled: '@'
-    },
-    controllerAs: 'ctrl',
-    controller: function ($scope, $rootScope, garageStorage) {
-    $scope.engineTypes = garageStorage.getEngineTypes();
-
-    $scope.addCar = function () {
-    $scope.$emit("car:saved", $scope.car);
-
-    $rootScope.$broadcast('car:added', $scope.car);
-    };
-    }
-    };
- */
-
 }

@@ -6,6 +6,7 @@ dependencies:
   js: any
   shadow_dom: any
   observe: any
+  polymer: any
 dev_dependencies:
   unittest: any
 transformers:

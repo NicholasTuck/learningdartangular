@@ -17,8 +17,11 @@ class LogPanel implements AttachAware {
   @NgOneWay('cars') ObservableList<Car> cars;
   String logText = '';
 
-  LogPanel(this._scope) {
+  LogPanel(this._scope, RootScope rootScope) {
     logText = '';
+    rootScope.on("global:car:saved").listen((ScopeEvent e) {
+      logMessage("Car Changed", e.data);
+    });
   }
 
   clearLog() => logText = '';

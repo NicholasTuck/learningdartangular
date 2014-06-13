@@ -65,6 +65,14 @@ packages:
     description: perf_api
     source: hosted
     version: "0.0.8"
+  polymer:
+    description: polymer
+    source: hosted
+    version: "0.10.0-pre.12"
+  polymer_expressions:
+    description: polymer_expressions
+    source: hosted
+    version: "0.10.0"
   route_hierarchical:
     description: route_hierarchical
     source: hosted
@@ -85,6 +93,10 @@ packages:
     description: stack_trace
     source: hosted
     version: "0.9.3+2"
+  template_binding:
+    description: template_binding
+    source: hosted
+    version: "0.10.0"
   unittest:
     description: unittest
     source: hosted
@@ -97,3 +109,7 @@ packages:
     description: web_components
     source: hosted
     version: "0.3.4"
+  yaml:
+    description: yaml
+    source: hosted
+    version: "0.9.0+2"

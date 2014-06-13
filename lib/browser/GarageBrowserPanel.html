@@ -7,7 +7,7 @@
             <car-items-list cars="cmp.cars" selectedCar="cmp.selectedCar"></car-items-list>
         </div>
         <div id="selectedCarDetailsEditor" class="pull-left" ng-hide="cmp.selectedCar == null">
-            <car-form car="cmp.selectedCar" disabled="cmp.disabled"></car-form>
+            <car-form car="cmp.carToEdit" disabled="cmp.disabled"></car-form>
         </div>
         <div ng-show="cmp.selectedCar == null">
             Select a car from the list!

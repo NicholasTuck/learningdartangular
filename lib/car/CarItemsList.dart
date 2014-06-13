@@ -10,12 +10,15 @@ import 'package:dart_garage/car/Car.dart';
     publishAs: 'cmp'
 )
 class CarItemsList {
-
+  Scope _scope;
   @NgTwoWay('cars') List<Car> cars;
   @NgTwoWay('selectedCar') Car selectedCar;
 
+  CarItemsList(this._scope);
+
   void selectCar(Car car){
     selectedCar = car;
+    _scope.emit("car:selected", car);
   }
 
 }
