@@ -3,14 +3,18 @@
         <h3 class="panel-title">{{cmp.panelTitle}}</h3>
     </div>
     <div class="panel-body">
-        <div id="carCollectionEditor" class="list-group pull-left">
-            <car-items-list cars="cmp.cars" selectedCar="cmp.selectedCar"></car-items-list>
-        </div>
-        <div id="selectedCarDetailsEditor" class="pull-left" ng-hide="cmp.selectedCar == null">
-            <car-form car="cmp.carToEdit" disabled="cmp.disabled"></car-form>
-        </div>
-        <div ng-show="cmp.selectedCar == null">
-            Select a car from the list!
+        <div class="row">
+
+            <div class="col-sm-5">
+                <car-items-list cars="cmp.cars" selectedCar="cmp.selectedCar"></car-items-list>
+            </div>
+
+            <div class="col-sm-7">
+                <car-form car="cmp.carToEdit" disabled="cmp.disabled" ng-hide="cmp.selectedCar == null"></car-form>
+                <div ng-show="cmp.selectedCar == null">
+                    Select a car from the list!
+                </div>
+            </div>
         </div>
     </div>
 </div>

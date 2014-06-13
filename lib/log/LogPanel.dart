@@ -4,6 +4,7 @@ import 'package:angular/angular.dart';
 import 'package:dart_garage/car/Car.dart';
 import 'package:observe/observe.dart';
 import 'dart:collection';
+import 'package:dart_garage/WatchingUtil.dart';
 
 @Component(
     selector: 'log-panel',
@@ -35,6 +36,4 @@ class LogPanel implements AttachAware {
   logMessage(String prefix, Car car) => logText = "$prefix: $car \n"
                                                   + logText;
 
-  itemAdded(value)=> value.first.addedCount > 0;
-  itemRemoved(value)=> value.first.removed.length > 0;
 }

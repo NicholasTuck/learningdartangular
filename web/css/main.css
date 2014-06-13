@@ -27,20 +27,12 @@
     margin-right: 15px;
 }
 
-#selectedCarDetails, #selectedCarDetailsBrowse {
-    margin-left: 10px;
-}
-
 .logArea {
     font-size: .7em;
 }
 
 #cesiumContainer {
     height: 480px;
-}
-
-#carCollectionEditor{
-    margin-left: 10px;
 }
 [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide{
     display: none !important;
