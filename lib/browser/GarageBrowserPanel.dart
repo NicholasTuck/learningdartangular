@@ -17,7 +17,7 @@ class GarageBrowserPanel implements AttachAware {
   @NgTwoWay('cars') List<Car> cars;
   @NgOneWayOneTime('disabled') bool disabled;
 
-  Car selectedCar;
+  Car _selectedCar;
   String panelTitle;
 
   Car carToEdit;
@@ -27,12 +27,13 @@ class GarageBrowserPanel implements AttachAware {
       selectedCar.copyToMe(event.data);
       rootScope.emit("global:car:saved", event.data);
     });
-
-    _scope.on("car:selected").listen((ScopeEvent event) {
-      Car theSelectedCar = event.data;
-      carToEdit = (disabled ? theSelectedCar : new Car.clonedFrom(theSelectedCar));
-    });
   }
+
+  set selectedCar(Car car) {
+    _selectedCar = car;
+    carToEdit = (disabled ? car : new Car.clonedFrom(car));
+  }
+  Car get selectedCar => _selectedCar;
 
   void attach() {
     panelTitle = (disabled ? "Garage Browser" : "Garage Editor");

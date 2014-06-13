@@ -32,7 +32,8 @@ class LogPanel implements AttachAware {
       ..where(itemRemoved).listen((value) => logMessage("Car Removed", value.first.removed.first));
   }
 
-  logMessage(String prefix, Car car) => logText += "$prefix: $car \n";
+  logMessage(String prefix, Car car) => logText = "$prefix: $car \n"
+                                                  + logText;
 
   itemAdded(value)=> value.first.addedCount > 0;
   itemRemoved(value)=> value.first.removed.length > 0;

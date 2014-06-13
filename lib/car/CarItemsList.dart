@@ -18,7 +18,6 @@ class CarItemsList {
 
   void selectCar(Car car){
     selectedCar = car;
-    _scope.emit("car:selected", car);
   }
 
 }
