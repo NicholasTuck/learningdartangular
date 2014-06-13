@@ -14,4 +14,7 @@ class Car {
   Car.empty();
   Car(this.id, this.make, this.model, this.hasBrakes, this.engineType, this.lon, this.lat);
 
+  toString() {
+      return "car: $id $make $model $hasBrakes $engineType $lon $lat";
+  }
 }
