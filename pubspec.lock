@@ -53,6 +53,10 @@ packages:
     description: matcher
     source: hosted
     version: "0.10.1+1"
+  observe:
+    description: observe
+    source: hosted
+    version: "0.10.0"
   path:
     description: path
     source: hosted
@@ -69,6 +73,10 @@ packages:
     description: shadow_dom
     source: hosted
     version: "0.10.0"
+  smoke:
+    description: smoke
+    source: hosted
+    version: "0.1.0+1"
   source_maps:
     description: source_maps
     source: hosted

@@ -10,6 +10,7 @@ import 'package:dart_garage/car/CarForm.dart';
 import 'package:dart_garage/car/CarItemsList.dart';
 import 'package:dart_garage/remove/RemoveCarPanel.dart';
 import 'package:dart_garage/browser/GarageBrowserPanel.dart';
+import 'package:dart_garage/log/LogPanel.dart';
 import 'GarageAppController.dart';
 
 //dart_garage.components.badge_component
@@ -31,6 +32,7 @@ class GarageAppModule extends Module {
     type(CarItemsList);
     type(RemoveCarPanel);
     type(GarageBrowserPanel);
+    type(LogPanel);
 //    type(RecipeBookController);
 //    type(RatingComponent);
 //    type(Tooltip);
