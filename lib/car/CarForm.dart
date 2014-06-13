@@ -4,6 +4,7 @@ library dart_garage.car.CarForm;
 import 'dart:convert' show JSON;
 
 import 'package:angular/angular.dart';
+import 'package:dart_garage/car/Car.dart';
 
 @Component(
     selector: 'car-form',
@@ -21,7 +22,9 @@ class CarForm {
   CarForm(this._scope) {
   }
 
-
+  void saveCar() {
+      _scope.emit("car:saved", car);
+  }
 
 
 /**
@@ -45,22 +48,5 @@ class CarForm {
     }
     };
  */
-
-}
-
-
-
-class Car {
-  int id;
-  String make;
-  String model;
-  bool hasBrakes;
-  String engineType;
-  double lon;
-  double lat;
-
-  static List<String> ENGINE_TYPES = ['Four Cylinder', 'Three Cylinder', 'Two Stroke Cycle', 'In-Line Cylinder'];
-
-  Car(this.id, this.make, this.model, this.hasBrakes, this.engineType, this.lon, this.lat);
 
 }

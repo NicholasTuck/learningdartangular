@@ -7,6 +7,10 @@ import 'package:angular/application_factory.dart';
 import 'package:dart_garage/components/badge_component.dart';
 import 'package:dart_garage/add/AddCarPanel.dart';
 import 'package:dart_garage/car/CarForm.dart';
+import 'package:dart_garage/car/CarItemsList.dart';
+import 'package:dart_garage/remove/RemoveCarPanel.dart';
+import 'GarageAppController.dart';
+
 //dart_garage.components.badge_component
 
 
@@ -22,6 +26,9 @@ class GarageAppModule extends Module {
     type(BadgeComponent);
     type(AddCarPanel);
     type(CarForm);
+    type(GarageAppController);
+    type(CarItemsList);
+    type(RemoveCarPanel);
 //    type(RecipeBookController);
 //    type(RatingComponent);
 //    type(Tooltip);

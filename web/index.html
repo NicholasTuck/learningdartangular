@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app>
 <head>
-    <title>Chapter Five - A Simple Recipe Book</title>
+    <title>Dart Garage Learning Project</title>
     <link rel="stylesheet" href="css/bootstrap-3.1.1.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -21,20 +21,22 @@
 </h1>
 
 
-<section id="main">
-    <div id="garageWrapper">
+<section id="main" >
+    <div id="garageWrapper" garage-app>
 
         <div class="container-fluid">
 
             <div class="row">
 
                 <div class="col-sm-3" id="addCar">
-                    <add-car-panel apply-author-styles></add-car-panel>
+                    <add-car-panel cars="ctrl.cars"></add-car-panel>
                 </div>
 
 
-                <div class="col-sm-2" id="removeCar" >
-                    <remove-car-panel></remove-car-panel>
+
+
+                <div class="col-sm-2" id="removeCar">
+                    <remove-car-panel cars="ctrl.cars"></remove-car-panel>
                 </div>
 
                 <div class="col-sm-7" id="garageEditor">

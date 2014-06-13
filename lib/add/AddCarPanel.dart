@@ -2,6 +2,7 @@ library dart_garage.add.AddCarPanel;
 
 import 'package:angular/angular.dart';
 import 'package:dart_garage/car/CarForm.dart';
+import 'package:dart_garage/car/Car.dart';
 
 
 @Component(
@@ -13,16 +14,24 @@ import 'package:dart_garage/car/CarForm.dart';
 class AddCarPanel {
 
   Scope _scope;
-  Car car;
 
+  Car newCar;
+
+  @NgTwoWay('cars') List<Car> cars;
 
   AddCarPanel(this._scope){
-    if (car == null) {
-      car = new Car(3, "Nissan", "Altima", false, Car.ENGINE_TYPES[0], -100.0, 27.0);
+    if (newCar == null) {
+      newCar = new Car(3, "Nissan", "Altima", false, Car.ENGINE_TYPES[0], -100.0, 27.0);
     }
+
+    _scope.on("car:saved").listen((ScopeEvent scopeEvent) => this.addCar(scopeEvent.data));
   }
 
 
+  void addCar(Car car) {
+    cars.add(car);
+    newCar = new Car.empty();
+  }
 
 /**
  *
