@@ -1,8 +1,9 @@
 library dart_garage.car.CarStorage;
 import 'package:observe/observe.dart';
 import 'package:dart_garage/car/Car.dart';
+import 'package:di/annotations.dart';
 
-
+@Injectable()
 class CarStorage {
   int _carIdCounter = 0;
   ObservableList<Car> cars = new ObservableList();
