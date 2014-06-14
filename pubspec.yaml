@@ -1,15 +1,16 @@
 name: dart_garage
 version: 0.0.1
+environment:
+  sdk: 1.4.2
 dependencies:
-  angular: ">=0.12.0 <0.13.0"
-  di: ">=0.0.39 <0.1.0"
-  browser: any
-  js: any
-  shadow_dom: any
+  angular: '>=0.12.0 <0.13.0'
+  browser: ">=0.10.0+2 <0.11.0"
+  di: ">= 0.0.40"
+#  js: any
   observe: any
   polymer: any
+  shadow_dom: any
 dev_dependencies:
   unittest: any
 transformers:
 - angular
-- di
