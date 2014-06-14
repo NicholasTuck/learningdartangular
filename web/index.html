@@ -8,14 +8,6 @@
 
 <body ng-cloak>
 
-
-
-
-
-
-
-
-
 <h1>Dart Garage
     <small>Learning Project</small>
 </h1>
@@ -27,83 +19,32 @@
         <div class="container-fluid">
 
             <div class="row">
-
                 <div class="col-sm-3" id="addCar">
-                    <add-car-panel cars="ctrl.cars"></add-car-panel>
+                    <add-car-panel></add-car-panel>
                 </div>
 
-
-
-
                 <div class="col-sm-2" id="removeCar">
-                    <remove-car-panel cars="ctrl.cars"></remove-car-panel>
+                    <remove-car-panel></remove-car-panel>
                 </div>
 
                 <div class="col-sm-7" id="garageEditor">
-                    <garage-browser-panel cars="ctrl.cars"></garage-browser-panel>
+                    <garage-browser-panel></garage-browser-panel>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-5" id="garageBrowser">
-                    <garage-browser-panel cars="ctrl.cars" disabled="true"></garage-browser-panel>
+                    <garage-browser-panel disabled="true"></garage-browser-panel>
                 </div>
 
                 <div class="col-sm-7" id="log">
-                    <log-panel cars="ctrl.cars"></log-panel>
+                    <log-panel></log-panel>
                 </div>
-
-                <!--<div class="col-sm-7" id="cesiumView" ng-controller="cesiumController as cc">-->
-                    <!--<div>-->
-
-                        <!--<div class="panel panel-primary">-->
-                            <!--<div class="panel-heading">-->
-                                <!--<h3 class="panel-title">Cesium</h3>-->
-                            <!--</div>-->
-                            <!--<div class="panel-body">-->
-
-                                <!--<div id="cesiumContainer" ng-init="initCesium()">-->
-
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
             </div>
-
 
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!--<script src="packages/shadow_dom/shadow_dom.min.js"></script>-->
     <script type="application/dart" src="main.dart"></script>

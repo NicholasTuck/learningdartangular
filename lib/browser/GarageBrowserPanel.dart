@@ -4,6 +4,7 @@ import 'package:angular/angular.dart';
 import 'package:dart_garage/car/Car.dart';
 import 'package:observe/observe.dart';
 import 'package:dart_garage/WatchingUtil.dart';
+import 'package:dart_garage/car/CarStorage.dart';
 
 
 @Component(
@@ -17,15 +18,18 @@ class GarageBrowserPanel implements AttachAware {
   RootScope _rootScope;
   Car _selectedCar;
 
-  @NgTwoWay('cars')  ObservableList<Car> cars;
   @NgOneWayOneTime('disabled') bool disabled;
+  ObservableList<Car> cars;
 
   String panelTitle;
   Car carToEdit;
 
-  GarageBrowserPanel(this._scope, this._rootScope) {
+
+  GarageBrowserPanel(this._scope, this._rootScope, CarStorage carStorage) {
     _scope.on("car:saved").listen(onCarSaved);
+    cars = carStorage.cars;
   }
+
 
   set selectedCar(Car car) {
     _selectedCar = car;
