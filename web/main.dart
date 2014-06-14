@@ -7,6 +7,7 @@ import 'package:dart_garage/remove/RemoveCarPanel.dart';
 import 'package:dart_garage/browser/GarageBrowserPanel.dart';
 import 'package:dart_garage/log/LogPanel.dart';
 import 'package:dart_garage/car/CarBootstrap.dart';
+import 'package:dart_garage/map/MapPanel.dart';
 
 import 'GarageAppController.dart';
 
@@ -19,6 +20,7 @@ class GarageAppModule extends Module {
     type(GarageBrowserPanel);
     type(LogPanel);
     bootstrapCar(this);
+    type(MapPanel);
   }
 }
 
