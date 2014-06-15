@@ -25,7 +25,11 @@ class MapPanel extends ShadowRootAware implements AttachAware {
   Scene scene;
   BillboardCollection billboards;
 
-  MapPanel(this._scope, this._carStorage);
+  MapPanel(this._scope, this._carStorage, RootScope rootScope) {
+    rootScope.on("global:car:saved").listen((ScopeEvent event) {
+      carUpdated(event.data as Car);
+    });
+  }
 
   void attach() {
     cars = _carStorage.cars;
@@ -78,6 +82,11 @@ class MapPanel extends ShadowRootAware implements AttachAware {
 
   void carRemoved(Car car){
     billboards.remove(car.id);
+  }
+
+  void carUpdated(Car car){
+    carRemoved(car);
+    carAdded(car);
   }
 
 }
