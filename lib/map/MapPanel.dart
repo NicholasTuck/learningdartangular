@@ -9,7 +9,7 @@ import 'package:dart_garage/car/CarStorage.dart';
 import 'dart:js';
 import 'dart:html';
 import 'package:dart_garage/cesium/Cesium.dart';
-
+import 'package:dart_garage/WatchingUtil.dart';
 
 @Component(
     selector: 'map-panel',
@@ -29,6 +29,11 @@ class MapPanel extends ShadowRootAware implements AttachAware {
 
   void attach() {
     cars = _carStorage.cars;
+    cars.listChanges
+      ..where(itemAdded).listen((value) => carAdded(cars[value.first.index]))
+      ..where(itemRemoved).listen((value) => carRemoved(value.first.removed.first));
+
+
   }
 
   void onShadowRoot(ShadowRoot shadowRoot) {
@@ -65,6 +70,14 @@ class MapPanel extends ShadowRootAware implements AttachAware {
       'imageIndex': 0,
       'id': car.id
     };
+  }
+
+  void carAdded(Car car){
+    billboards.add(createBillboard(car));
+  }
+
+  void carRemoved(Car car){
+    billboards.remove(car.id);
   }
 
 }

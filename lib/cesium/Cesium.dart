@@ -45,10 +45,9 @@ class Scene{
 
 
 class BillboardCollection{
-  var _billboardCollectionProxy;
+  JsObject _billboardCollectionProxy;
   TextureAtlas _textureAtlas;
-  //      billboards['textureAtlas'] = textureAtlas;
-
+  List<JsObject> billboards = new List<JsObject>();
 
   BillboardCollection(){
     _billboardCollectionProxy = new JsObject(Cesium.cesiumProxy['BillboardCollection']);
@@ -61,9 +60,16 @@ class BillboardCollection{
   }
 
   void add(var billboard) {
-    _billboardCollectionProxy.callMethod('add', [new JsObject.jsify(billboard)]);
+    var jsifyBillboard = new JsObject.jsify(billboard);
+    var returnedBillboard = _billboardCollectionProxy.callMethod('add', [jsifyBillboard]);
+    billboards.add(returnedBillboard);
   }
 
+  void remove(var id){
+    var jsifyBillboard = billboards.firstWhere((JsObject element) => element['id'] == id);
+    _billboardCollectionProxy.callMethod('remove', [jsifyBillboard]);
+    billboards.remove(jsifyBillboard);
+  }
 }
 
 class TextureAtlas{
