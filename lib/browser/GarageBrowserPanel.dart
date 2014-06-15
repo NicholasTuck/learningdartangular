@@ -36,6 +36,9 @@ class GarageBrowserPanel implements AttachAware {
     if(_selectedCar != null) {
       carToEdit = (disabled ? car : new Car.clonedFrom(car));
     }
+    if (disabled && car != null) {
+      _rootScope.emit("global:car:selected", car);
+    }
   }
   Car get selectedCar => _selectedCar;
 

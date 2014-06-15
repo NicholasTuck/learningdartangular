@@ -32,8 +32,11 @@ class CesiumWidget {
 class Scene{
   JsObject _sceneProxy;
   BillboardCollection _billboardCollection;
+  Animations animations;
 
-  Scene.fromProxy(this._sceneProxy);
+  Scene.fromProxy(this._sceneProxy){
+    animations = new Animations(_sceneProxy['animations']);
+  }
 
   void add(BillboardCollection billboards) {
     _billboardCollection = billboards;
@@ -88,8 +91,30 @@ class TextureAtlas{
 class Cartesian3 {
   static var _cartesian3Proxy = Cesium.cesiumProxy['Cartesian3'];
 
-  static fromDegrees(double lon, double lat) {
-    return _cartesian3Proxy.callMethod('fromDegrees', [lon, lat]);
+  static fromDegrees(double lon, double lat, {num zoomHeight:0}) {
+    return _cartesian3Proxy.callMethod('fromDegrees', [lon, lat, zoomHeight]);
+  }
+
+}
+
+class CameraFlightPath {
+
+  static JsObject _cameraFlightPathProxy = Cesium.cesiumProxy['CameraFlightPath'];
+
+  static createAnimation(Scene scene, var args) {
+    var jsifyArgs = new JsObject.jsify(args);
+    JsObject flightPathObject = _cameraFlightPathProxy.callMethod('createAnimation', [scene._sceneProxy, jsifyArgs]);
+    return flightPathObject;
+  }
+}
+
+class Animations {
+  JsObject _animationsProxy;
+
+  Animations(this._animationsProxy);
+
+  void add(flightPath) {
+    _animationsProxy.callMethod('add', [flightPath]);
   }
 
 }

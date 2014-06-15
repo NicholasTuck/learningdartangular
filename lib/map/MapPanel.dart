@@ -26,9 +26,8 @@ class MapPanel extends ShadowRootAware implements AttachAware {
   BillboardCollection billboards;
 
   MapPanel(this._scope, this._carStorage, RootScope rootScope) {
-    rootScope.on("global:car:saved").listen((ScopeEvent event) {
-      carUpdated(event.data as Car);
-    });
+    rootScope.on("global:car:saved").listen((ScopeEvent event) => carUpdated(event.data as Car));
+    rootScope.on("global:car:selected").listen((ScopeEvent event) => carSelected(event.data as Car));
   }
 
   void attach() {
@@ -36,8 +35,6 @@ class MapPanel extends ShadowRootAware implements AttachAware {
     cars.listChanges
       ..where(itemAdded).listen((value) => carAdded(cars[value.first.index]))
       ..where(itemRemoved).listen((value) => carRemoved(value.first.removed.first));
-
-
   }
 
   void onShadowRoot(ShadowRoot shadowRoot) {
@@ -89,4 +86,11 @@ class MapPanel extends ShadowRootAware implements AttachAware {
     carAdded(car);
   }
 
+  void carSelected(Car car) {
+    var destination = Cartesian3.fromDegrees(car.lon, car.lat, zoomHeight:30000);
+    var flight = CameraFlightPath.createAnimation(scene, {
+        'destination':destination, 'duration': 3500
+    });
+    scene.animations.add(flight);
+  }
 }
